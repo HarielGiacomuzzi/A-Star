@@ -12,8 +12,6 @@ Tested with Python 2.7.9
 - **common.py**             - Constants and map reading method
 - **game.py**               - Engine with drawing calls
 - **pathfinder.py**         - A* solver
-- **pathfinder_bfs.py**     - BFS solver
-- **pathfinder_student.py** - Incomplete version of solver
 - **player.py**             - Character with drawing calls
 
 ### Tests
