@@ -31,6 +31,10 @@ python pathfinder.py [filename.map]
 python test_pathfinder.py
 ```
 
+### Questions
+
+Questions are in the [readme.txt](readme.txt) to be sent together with the code.
+
 ### Maps
 - Maps hold the initial configuration of the scenario:
   - Where the player start, ```(X,Y)```
