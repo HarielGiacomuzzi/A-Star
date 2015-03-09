@@ -86,13 +86,12 @@ class Game:
     def load_tileset(self, filename, width, height):
         image = self.load_image(filename)
         self.tileset = []
-        tile_x = 0
         tile_y = 0
         for y in range(height):
+            tile_x = 0
             for x in range(width):
                 self.tileset.append(image.subsurface((tile_x, tile_y, TILE_WIDTH, TILE_HEIGHT)))
                 tile_x += TILE_WIDTH
-            tile_x = 0
             tile_y += TILE_HEIGHT
 
 # ==========================================
