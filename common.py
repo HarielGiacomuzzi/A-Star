@@ -35,24 +35,24 @@ MOVE_SPEED  = 4 * ZOOM
 # ------------------------------------------
 
 def read_map(filename):
-    with open(os.path.join(PATH, "maps", filename)) as mapfile:
-        sx = int(mapfile.readline())
-        sy = int(mapfile.readline())
-        map = [[int(cell) for cell in row.rstrip()] for row in mapfile]
-        map_width = len(map[0])
-        map_height = len(map)
+    with open(os.path.join(PATH, "maps", filename)) as map_file:
+        sx = int(map_file.readline())
+        sy = int(map_file.readline())
+        map_data = [[int(cell) for cell in row.rstrip()] for row in map_file]
+        map_width = len(map_data[0])
+        map_height = len(map_data)
         if sx < 0 or sx >= map_width:
             raise Exception("Player outside map width", map_width, sx)
         elif sy < 0 or sy >= map_height:
             raise Exception("Player outside map height", map_height, sy)
-        for row in map:
+        for row in map_data:
             if len(row) != map_width:
                 raise Exception("Map width does not match", map_width, len(row))
         gx = None
         gy = None
         for y in range(map_height):
             for x in range(map_width):
-                cell = map[y][x]
+                cell = map_data[y][x]
                 if cell != TILE_CLEAR and cell != TILE_CLOSED:
                     if cell == TILE_GOAL:
                         if gx == None:
@@ -64,21 +64,21 @@ def read_map(filename):
                         raise Exception("Unknown tile", cell)
         if gx == None:
             raise Exception("Goal not found in map")
-        return (sx, sy, gx, gy, map, map_width, map_height)
+        return (sx, sy, gx, gy, map_data, map_width, map_height)
 
 # ------------------------------------------
 # Neighbors
 # ------------------------------------------
 
-def neighbors(x, y, map, map_width, map_height):
+def neighbors(x, y, map_data, map_width, map_height):
     n = []
-    if x - 1 >= 0 and map[y][x-1] != TILE_CLOSED:
+    if x - 1 >= 0 and map_data[y][x-1] != TILE_CLOSED:
         n.append((x-1,y))
-    if x + 1 < map_width and map[y][x+1] != TILE_CLOSED:
+    if x + 1 < map_width and map_data[y][x+1] != TILE_CLOSED:
         n.append((x+1,y))
-    if y - 1 >= 0 and map[y-1][x] != TILE_CLOSED:
+    if y - 1 >= 0 and map_data[y-1][x] != TILE_CLOSED:
         n.append((x,y-1))
-    if y + 1 < map_height and map[y+1][x] != TILE_CLOSED:
+    if y + 1 < map_height and map_data[y+1][x] != TILE_CLOSED:
         n.append((x,y+1))
     return n
 

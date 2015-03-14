@@ -34,7 +34,7 @@ class PathFinder_A_Star:
     # Solve
     # ------------------------------------------
 
-    def solve(self, sx, sy, gx, gy, map, map_width, map_height):
+    def solve(self, sx, sy, gx, gy, map_data, map_width, map_height):
         # TODO return a list of movements (may be empty) if plan found, otherwise return None
         return None
 
@@ -72,8 +72,8 @@ if __name__ == '__main__':
     else:
         map_name = DEFAULT_MAP
     print "Loading map: " + map_name
-    sx, sy, gx, gy, map, map_width, map_height = read_map(map_name)
-    plan = PathFinder_A_Star().solve(sx, sy, gx, gy, map, map_width, map_height)
+    sx, sy, gx, gy, map_data, map_width, map_height = read_map(map_name)
+    plan = PathFinder_A_Star().solve(sx, sy, gx, gy, map_data, map_width, map_height)
     if plan == None:
         print "No plan was found"
     else:

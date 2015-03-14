@@ -14,7 +14,7 @@ class Player:
     # Initialize
     # ------------------------------------------
 
-    def __init__(self, sx, sy, gx, gy, map, map_width, map_height, image, max_pose, max_animation):
+    def __init__(self, sx, sy, gx, gy, map_data, map_width, map_height, image, max_pose, max_animation):
         self.direction = MOVE_DOWN
         self.image = image
         self.width = image.get_width() / max_pose
@@ -27,16 +27,16 @@ class Player:
         self.max_animation = max_animation
         self.pose = 0
         self.max_pose = max_pose
-        self.setup(sx, sy, gx, gy, map, map_width, map_height)
+        self.setup(sx, sy, gx, gy, map_data, map_width, map_height)
 
     # ------------------------------------------
     # Setup
     # ------------------------------------------
 
-    def setup(self, sx, sy, gx, gy, map, map_width, map_height):
+    def setup(self, sx, sy, gx, gy, map_data, map_width, map_height):
         self.x = sx * TILE_WIDTH
         self.y = sy * TILE_HEIGHT - self.diff_height
-        self.route = PathFinder_A_Star().solve(sx, sy, gx, gy, map, map_width, map_height)
+        self.route = PathFinder_A_Star().solve(sx, sy, gx, gy, map_data, map_width, map_height)
         self.action = None
 
     # ------------------------------------------

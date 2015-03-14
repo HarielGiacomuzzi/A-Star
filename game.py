@@ -18,14 +18,14 @@ class Game:
 
     def __init__(self, map_name):
         # Setup
-        sx, sy, gx, gy, self.map, self.map_width, self.map_height = read_map(map_name)
+        sx, sy, gx, gy, self.map_data, self.map_width, self.map_height = read_map(map_name)
         pygame.init()
         screen = pygame.display.set_mode((TILE_WIDTH * self.map_width, TILE_HEIGHT * self.map_height))
         pygame.display.set_caption("[T1a]   A Link to the Path")
         background = pygame.Surface(screen.get_size()).convert()
         self.load_tileset(TILESET, 3, 1)
         self.draw_map(background)
-        self.player = Player(sx, sy, gx, gy, self.map, self.map_width, self.map_height, self.load_image(PLAYER), 4, 8 / ZOOM)
+        self.player = Player(sx, sy, gx, gy, self.map_data, self.map_width, self.map_height, self.load_image(PLAYER), 4, 8 / ZOOM)
         # Loop
         clock = pygame.time.Clock()
         game_over = False
@@ -39,17 +39,17 @@ class Game:
                     game_over = True
                 elif event.type == KEYDOWN:
                     if event.key == K_SPACE: # Reset this map
-                        self.player.setup(sx, sy, gx, gy, self.map, self.map_width, self.map_height)
+                        self.player.setup(sx, sy, gx, gy, self.map_data, self.map_width, self.map_height)
                     elif event.key == K_ESCAPE: # Load map
                         map_name = raw_input('Load map: ')
-                        sx, sy, gx, gy, self.map, self.map_width, self.map_height = read_map(map_name)
+                        sx, sy, gx, gy, self.map_data, self.map_width, self.map_height = read_map(map_name)
                         if screen.get_size() != (TILE_WIDTH * self.map_width, TILE_HEIGHT * self.map_height):
                             del screen
                             del background
                             screen = pygame.display.set_mode((TILE_WIDTH * self.map_width, TILE_HEIGHT * self.map_height))
                             background = pygame.Surface(screen.get_size()).convert()
                         self.draw_map(background)
-                        self.player.setup(sx, sy, gx, gy, self.map, self.map_width, self.map_height)
+                        self.player.setup(sx, sy, gx, gy, self.map_data, self.map_width, self.map_height)
 
     # ------------------------------------------
     # Draw map
@@ -60,7 +60,7 @@ class Game:
         for y in range(self.map_height):
             map_x = 0
             for x in range(self.map_width):
-                tile = self.map[y][x]
+                tile = self.map_data[y][x]
                 if tile == TILE_CLEAR or tile == TILE_CLOSED or tile == TILE_GOAL:
                     surface.blit(self.tileset[tile], (map_x, map_y))
                 else:
