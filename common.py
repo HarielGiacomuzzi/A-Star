@@ -67,10 +67,10 @@ def read_map(filename):
         return (sx, sy, gx, gy, map_data, map_width, map_height)
 
 # ------------------------------------------
-# Neighbors
+# Successors
 # ------------------------------------------
 
-def neighbors(x, y, map_data, map_width, map_height):
+def successors(x, y, map_data, map_width, map_height):
     n = []
     if x - 1 >= 0 and map_data[y][x-1] != TILE_CLOSED:
         n.append((x-1,y))
