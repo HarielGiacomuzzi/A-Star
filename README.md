@@ -10,12 +10,12 @@ Tested with Python 2.7.9
 
 ### Source:
 - **common.py**             - Constants and map reading method
-- **game.py**               - Engine with drawing calls
-- **pathfinder.py**         - A* solver
-- **player.py**             - Character with drawing calls
+- **game.py**               - Engine with drawing functions
+- **pathfinder.py**         - A* solver reference implementation
+- **player.py**             - Character drawing calls
 
 ### Tests
-- **test_pathfinder.py**    - Test only pathfinder   
+- **test_pathfinder.py**    - Test suite for pathfinder
 
 ### Execution
 - Execute interface with default map or filename.map
