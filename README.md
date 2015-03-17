@@ -92,3 +92,10 @@ cell0x(height-1) ... cell(width-1)x(height-1)
 - The current sprites are copyrighted by Nintendo from **The Legend of Zelda: A Link to the Past** and **Pokemon Red/Blue** games, they are a subset of the original being used for educational purposes.
 - Linktocat is part of the Octodex: https://octodex.github.com/linktocat/
 [pygame]:http://www.pygame.org/news.html
+
+### Python 3.4
+
+Ops, some things do not work as expected on Python 3.4:
+
+- prints require parenthesis ```print("Hello")```.
+- Queue does not need to be imported, comment line ```import Queue``` from file pathfinder.py.
