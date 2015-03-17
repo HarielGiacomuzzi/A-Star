@@ -6,7 +6,8 @@
 
 Reference Implementation for Search Assignment  
 Requires [pygame] :snake:  
-Tested with Python 2.7.9
+Tested with [Python](https://www.python.org/) 2.7.9  
+Check out this [Python](http://learnpython.org/) tutorial!
 
 ### Source:
 - **common.py**             - Constants and map reading method
