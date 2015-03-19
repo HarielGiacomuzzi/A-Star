@@ -9,8 +9,8 @@ DEBUG       = False
 FPS         = 30
 # Image files
 # Zelda
-PLAYER = "link.png"
-TILESET = "link_tiles.png"
+PLAYER = "link.bmp"
+TILESET = "link_tiles.bmp"
 # Pokemon
 #PLAYER = "red.png"
 #TILESET = "red_tiles.png"
