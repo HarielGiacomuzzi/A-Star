@@ -95,4 +95,4 @@ def direction(x1, y1, x2, y2):
         return MOVE_DOWN
     elif y1 > y2:
         return MOVE_UP
-    raise Exception("Unknown direction", pos1, pos2)
+    raise Exception("Unknown direction", x1, y1, x2, y2)
