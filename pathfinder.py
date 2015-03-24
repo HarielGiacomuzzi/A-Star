@@ -29,7 +29,7 @@ class PathFinder_A_Star:
     def heuristic(self, x1, y1, x2, y2):
        # TODO heuristic function returns an integer
        return 0
-    
+
     # ------------------------------------------
     # Solve
     # ------------------------------------------
@@ -42,7 +42,7 @@ class PathFinder_A_Star:
     # Get solvable
     # ------------------------------------------
 
-    def get_solvable(self):
+    def get_solvable(self, sx = None, sy = None, gx = None, gy = None, map_data = None, map_width = None, map_height = None):
         # TODO return True if plan found, otherwise False
         return False
 
@@ -50,7 +50,7 @@ class PathFinder_A_Star:
     # Get max tree height
     # ------------------------------------------
 
-    def get_max_tree_height(self):
+    def get_max_tree_height(self, sx = None, sy = None, gx = None, gy = None, map_data = None, map_width = None, map_height = None):
         # TODO return max tree height if plan found, otherwise None
         return None
 
@@ -58,7 +58,7 @@ class PathFinder_A_Star:
     # Get min moves
     # ------------------------------------------
 
-    def get_min_moves(self):
+    def get_min_moves(self, sx = None, sy = None, gx = None, gy = None, map_data = None, map_width = None, map_height = None):
         # TODO return size of minimal plan to reach goal if plan found, otherwise None
         return None
 

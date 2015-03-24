@@ -57,7 +57,7 @@ class Test_A_Star(unittest.TestCase):
         sx, sy, gx, gy, map, map_width, map_height = read_map(map_name)
         pathfinder = PathFinder_A_Star()
         pathfinder.solve(sx, sy, gx, gy, map, map_width, map_height)
-        self.assertEqual(pathfinder.get_solvable(), expected)
+        self.assertEqual(pathfinder.get_solvable(sx, sy, gx, gy, map, map_width, map_height), expected)
 
     def plan_match(self, map_name, moves):
         sx, sy, gx, gy, map, map_width, map_height = read_map(map_name)
@@ -68,16 +68,16 @@ class Test_A_Star(unittest.TestCase):
         sx, sy, gx, gy, map, map_width, map_height = read_map(map_name)
         pathfinder = PathFinder_A_Star()
         plan = pathfinder.solve(sx, sy, gx, gy, map, map_width, map_height)
-        self.assertEqual(pathfinder.get_max_tree_height(), height)
+        self.assertEqual(pathfinder.get_max_tree_height(sx, sy, gx, gy, map, map_width, map_height), height)
 
     def min_moves(self, map_name, moves):
         sx, sy, gx, gy, map, map_width, map_height = read_map(map_name)
         pathfinder = PathFinder_A_Star()
         plan = pathfinder.solve(sx, sy, gx, gy, map, map_width, map_height)
         if moves != None:
-            self.assertEqual(pathfinder.get_min_moves(), len(moves))
+            self.assertEqual(pathfinder.get_min_moves(sx, sy, gx, gy, map, map_width, map_height), len(moves))
         else:
-            self.assertEqual(pathfinder.get_min_moves(), moves)
+            self.assertEqual(pathfinder.get_min_moves(sx, sy, gx, gy, map, map_width, map_height), moves)
 
     # ------------------------------------------
     # Trivial
