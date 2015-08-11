@@ -14,7 +14,7 @@ EASY = "easy.txt"
 EASY_SOLUTION = [
     MOVE_UP, MOVE_UP, MOVE_UP, MOVE_UP, MOVE_UP, MOVE_UP,
     MOVE_RIGHT, MOVE_RIGHT, MOVE_RIGHT]
-EASY_MAX_TREE_HEIGHT = 9 # ToDo find max tree height correct value
+EASY_MAX_TREE_HEIGHT = 9
 EASY_GRADE = 0.25
 
 MEDIUM = "medium.txt"
@@ -27,7 +27,7 @@ MEDIUM_SOLUTION = [
     MOVE_LEFT, MOVE_LEFT, MOVE_LEFT,
     MOVE_UP, MOVE_UP,
     MOVE_LEFT, MOVE_LEFT, MOVE_LEFT]
-MEDIUM_MAX_TREE_HEIGHT = 28 # ToDo find max tree height correct value
+MEDIUM_MAX_TREE_HEIGHT = 28
 MEDIUM_GRADE = 0.25
 
 # ==========================================
