@@ -9,14 +9,15 @@ Requires [pygame] :snake:
 Tested with [Python](https://www.python.org/) 2.7.9  
 Check out this [Python](http://learnpython.org/) tutorial!
 
+
 ### Source:
-- **common.py**             - Constants and map reading method
-- **game.py**               - Engine with drawing functions
-- **pathfinder.py**         - A* solver reference implementation
-- **player.py**             - Character drawing calls
+- [common.py](common.py)           - Constants and map reading method
+- [game.py](game.py)               - Engine with drawing functions
+- [pathfinder.py](pathfinder.py)   - A* solver reference implementation
+- [player.py](player.py)           - Character drawing calls
 
 ### Tests
-- **test_pathfinder.py**    - Test suite for pathfinder
+- [test_pathfinder.py](test_pathfinder.py)    - Test suite for pathfinder
 
 ### Execution
 - Execute interface with default map or filename.map
@@ -34,13 +35,14 @@ python test_pathfinder.py
 
 ### Questions
 
-Questions are in the [readme.txt](readme.txt) to be sent together with the code.
+The questions regarding your implementation (described in Section 4 of [ai-t1a.pdf](ai-t1a.pdf)) are already included in the [readme.txt](readme.txt) file, for your convenience. You should answer them in the text file and them together with the code.
+
 
 ### Maps
-- Maps hold the initial configuration of the scenario:
-  - Where the player start, ```(X,Y)```
-  - The tiles used at each cell in the grid, ```(0: Clear, 1: Closed, 2: Goal)```
-- The method ```read_map(filename)``` of **common.py** loads maps from the **maps/** folder
+- Maps hold the initial configuration of the scenario, namely:
+  - The player's starting position, ```(X,Y)```
+  - Occupied tiles at each cell in the grid, ```(0: Clear, 1: Closed, 2: Goal)```
+- Method ```read_map(filename)``` in [common.py](common.py) loads maps from the [maps](maps) folder
 
 - All maps are text-based files **(.txt)** and follow this specification:
 ```
@@ -60,7 +62,7 @@ cell0x(height-1) ... cell(width-1)x(height-1)
     - Uncompressed format that any text editor can modify
     - Easy to generate and check if valid:
         - Use **Find 2** to check if single goal tile is present
-        - Use **Monospaced font** to see if map data matches a rectangle
+        - Use **Monospaced font** to see if map data matches a rectangle (this means you're better of with notepad than word)
     - Player position is defined outside of map data to allow any start configuration
         - Starting above the goal for example
 - Constraints
@@ -85,7 +87,7 @@ cell0x(height-1) ... cell(width-1)x(height-1)
 ```
 
 ### Sprites
-- Folder **sprites/** contains the images used.  
+- Folder [sprites](sprites) contains the images used.  
 - The images must match the sizes specified by common.py both in dimensions and poses.  
 - Default character poses are ```(Right 0, Left 1, Up 2, Down 3)```, therefore ```MOVE_UP = 2```.  
 - Tileset is loaded according to hardcoded numbers, default is ```3``` tiles in a single line: ```[][][]```
@@ -95,7 +97,10 @@ cell0x(height-1) ... cell(width-1)x(height-1)
 
 ### Python 3.4
 
-Ops, some things do not work as expected on Python 3.4:
+Unfortunately, some things do not work as expected on Python 3.4 (so we do not recommend using it):
 
 - prints require parenthesis ```print("Hello")```.
 - Queue does not need to be imported, comment line ```import Queue``` from file pathfinder.py.
+
+## Hand in
+To facilitate your the process of handing in your code, we have included a python program called [zipper.py](zipper.py) that creates this zip file for you, in the correct format. Use it to create your deliverable package.
