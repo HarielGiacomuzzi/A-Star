@@ -3,6 +3,8 @@
 import sys
 import Queue
 from common import *
+from AStarAlgorithm import *
+import time
 
 # ==========================================
 # PathFinder A Star
@@ -12,6 +14,7 @@ class PathFinder_A_Star:
 
     def __init__(self):
         # TODO initialize your attributtes here if needed
+        alg = None
         pass
 
     # ------------------------------------------
@@ -20,7 +23,8 @@ class PathFinder_A_Star:
 
     def get_cost(self, x1, y1, x2, y2):
         # TODO Cost of movement from (x1, y1) to (x2, y2)
-        return 0
+        return (x1-x2,y1-y2)
+        # Original: return 0
 
     # ------------------------------------------
     # Heuristic
@@ -28,7 +32,8 @@ class PathFinder_A_Star:
 
     def heuristic(self, x1, y1, x2, y2):
        # TODO heuristic function returns an integer
-       return 0
+       return math.sqrt(math.pow((x2-x1),2) + math.pow((y2-y1),2))
+       # Original :return 0
 
     # ------------------------------------------
     # Solve
@@ -36,7 +41,12 @@ class PathFinder_A_Star:
 
     def solve(self, sx, sy, gx, gy, map_data, map_width, map_height):
         # TODO return a list of movements (may be empty) if plan found, otherwise return None
-        return None
+        #while heuristic(self,sx,sy,gx,gy) != 0:
+        self.alg =  AStarAlgorithm(map_data,sx,sy,gx,gy,map_width,map_height)
+        return self.alg.startSearch()
+
+        #    pass
+        #return None
 
     # ------------------------------------------
     # Get solvable
@@ -44,7 +54,7 @@ class PathFinder_A_Star:
 
     def get_solvable(self, sx = None, sy = None, gx = None, gy = None, map_data = None, map_width = None, map_height = None):
         # TODO return True if plan found, otherwise False
-        return False
+        return self.alg.getSolvable()
 
     # ------------------------------------------
     # Get max tree height
@@ -52,7 +62,7 @@ class PathFinder_A_Star:
 
     def get_max_tree_height(self, sx = None, sy = None, gx = None, gy = None, map_data = None, map_width = None, map_height = None):
         # TODO return max tree height if plan found, otherwise None
-        return None
+        return self.alg.getMaxTree()
 
     # ------------------------------------------
     # Get min moves
@@ -60,7 +70,7 @@ class PathFinder_A_Star:
 
     def get_min_moves(self, sx = None, sy = None, gx = None, gy = None, map_data = None, map_width = None, map_height = None):
         # TODO return size of minimal plan to reach goal if plan found, otherwise None
-        return None
+        return self.alg.getMinCost()
 
 # ------------------------------------------
 # Main
